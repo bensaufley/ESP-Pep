@@ -1,17 +1,23 @@
 !!!
-%html
+%html{ lang: I18n.locale }
   %head
     %title= content_for?(:title) ? yield(:title) : "ESP-Pep"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "modernizr", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
     %header
-      %h1= content_for?(:title) ? yield(:title) : "ESP-Pep"
+      %h1= link_to content_for?(:title) ? yield(:title) : "ESP-Pep", root_path
       =content_tag(:h2, yield(:subtitle)) if content_for?(:h2)
       %nav
         - if user_signed_in?
-          = link_to cards_path
+          = link_to "New Card"
+          = link_to "Cards", cards_path
+          = link_to "Sign Out", destroy_user_session_path, method: :delete
         - else
           = link_to "Admin", new_user_session_path
-    = yield
+    %main
+      = yield
+    %footer
+      = I18n.t 'copyright'
+    = javascript_include_tag "application", "data-turbolinks-track" => true

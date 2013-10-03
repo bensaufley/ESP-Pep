@@ -6,32 +6,35 @@
         - @card.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :from_name
-    = f.text_field :from_name
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :position
-    = f.text_field :position
-  .field
-    = f.label :club_id
-    = f.number_field :club_id
-  .field
-    = f.label :manager_name
-    = f.text_field :manager_name
-  .field
-    = f.label :value
-    = f.number_field :value
-  .field
-    = f.label :service_standard
-    = f.number_field :service_standard
-  .field
-    = f.label :note
-    = f.text_area :note
-  .field
-    = f.label :from_email
-    = f.text_field :from_email
+  =label_tag do
+    %strong= Card.human_attribute_name(:from_name).titleize
+    = f.text_field :from_name, placeholder: Card.human_attribute_name(:from_name).titleize, placeholder: Card.human_attribute_name(:from_name).titleize
+  =label_tag do
+    %strong= Card.human_attribute_name(:from_email).titleize
+    = f.text_field :from_email, placeholder: Card.human_attribute_name(:from_email).titleize
+  =label_tag do
+    %strong= Card.human_attribute_name(:name).titleize
+    = f.text_field :name, placeholder: Card.human_attribute_name(:name).titleize
+  =label_tag do
+    %strong= Card.human_attribute_name(:email).titleize
+    = f.text_field :email, placeholder: Card.human_attribute_name(:email).titleize
+  =label_tag do
+    %strong= Card.human_attribute_name(:position).titleize
+    = f.text_field :position, placeholder: Card.human_attribute_name(:position).titleize
+  =label_tag do
+    %strong= Card.human_attribute_name(:club_id).titleize
+    = f.select :club_id, Club.order('name ASC').map{|c| [c.name, c.id]}, include_blank: "–#{Card.human_attribute_name(:club).titleize}–"
+  =label_tag do
+    %strong= Card.human_attribute_name(:manager_name).titleize
+    = f.text_field :manager_name, placeholder: Card.human_attribute_name(:manager_name).titleize
+  =label_tag do
+    %strong= Card.human_attribute_name(:value).titleize
+    = f.select :value, Card::VALUES.each_with_index.map{|k,v| [ k, v] }, include_blank: "–#{Card.human_attribute_name(:value).titleize}–"
+  =label_tag do
+    %strong= Card.human_attribute_name(:service_standard).titleize
+    = f.select :service_standard, Card::SERVICESTANDARDS.each_with_index.map{|k,v| [ k, v] }, include_blank: "–#{Card.human_attribute_name(:service_standard).titleize}–"
+  =label_tag do
+    %strong= Card.human_attribute_name(:note).titleize
+    = f.text_area :note, placeholder: Card.human_attribute_name(:note).titleize
   .actions
     = f.submit 'Save'

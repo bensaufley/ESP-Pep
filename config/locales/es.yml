@@ -19,19 +19,20 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  new_card: "new card"
-  copyright: "Copyright ©2013 Millennium Partners Sports Club Management, LLC. All Rights Reserved."
+es:
+  new_card: "nueva tarjeta"
+  copyright: "Copyright ©2013 Millennium Partners Sports Club Management, LLC. Todos los derechos reservados."
   activerecord:
     attributes:
       card:
-        from_name: "name of sending employee"
-        from_email: "email of sending employee"
-        name: "name of receiving employee"
-        email: "email of receiving employee"
-        position: "position"
+        model_name: "tarjeta"
+        from_name: "su nombre"
+        from_email: "su email"
+        name: "nombre del empleado que recibe"
+        email: "email del empleado que recibe"
+        position: "posición"
         club: "club"
-        manager_name: "name of receiving employee’s manager"
-        value: "Value"
-        service_standard: "Service Standard"
-        note: "explanation of five-star service"
+        manager_name: "nombre de recibir gerente del empleado"
+        value: "Valor"
+        service_standard: "Estándar de Servicio"
+        note: "explicación de servicio de cincos estrellas"

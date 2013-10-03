@@ -1,7 +1,3 @@
-%h1 Editing card
+- content_for :title, "Editing #{ link_to "Card", @card }".html_safe
 
 = render 'form'
-
-= link_to 'Show', @card
-\|
-= link_to 'Back', cards_path
