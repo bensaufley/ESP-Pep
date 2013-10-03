@@ -13,5 +13,5 @@
         - if user_signed_in?
           = link_to cards_path
         - else
-          = link_to "Admin", sign_in_path
+          = link_to "Admin", new_user_session_path
     = yield
