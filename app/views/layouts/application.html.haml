@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title= content_for?(:title) ? yield(:title) : "ESP-Pep"
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %header
+      %h1= content_for?(:title) ? yield(:title) : "ESP-Pep"
+      =content_tag(:h2, yield(:subtitle)) if content_for?(:h2)
+      %nav
+        - if user_signed_in?
+          = link_to cards_path
+        - else
+          = link_to "Admin", sign_in_path
+    = yield

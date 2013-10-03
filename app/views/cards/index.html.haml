@@ -1,0 +1,35 @@
+%h1 Listing cards
+
+%table
+  %tr
+    %th From name
+    %th Name
+    %th Position
+    %th Club
+    %th Manager name
+    %th Value
+    %th Service standard
+    %th Note
+    %th From email
+    %th
+    %th
+    %th
+
+  - @cards.each do |card|
+    %tr
+      %td= card.from_name
+      %td= card.name
+      %td= card.position
+      %td= card.club_id
+      %td= card.manager_name
+      %td= card.value
+      %td= card.service_standard
+      %td= card.note
+      %td= card.from_email
+      %td= link_to 'Show', card
+      %td= link_to 'Edit', edit_card_path(card)
+      %td= link_to 'Destroy', card, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Card', new_card_path

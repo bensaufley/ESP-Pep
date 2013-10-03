@@ -1,4 +1,17 @@
 ESPPep::Application.routes.draw do
+
+  resources :clubs
+
+  resources :cards, path: "/", only: [ :new, :create ]
+  
+  scope :admin do
+    resources :cards, except: [ :new, :create ]
+    resources :clubs
+  end
+  devise_for :users
+
+  root to: 'cards#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

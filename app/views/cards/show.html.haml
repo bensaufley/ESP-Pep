@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b From name:
+  = @card.from_name
+%p
+  %b Name:
+  = @card.name
+%p
+  %b Position:
+  = @card.position
+%p
+  %b Club:
+  = @card.club_id
+%p
+  %b Manager name:
+  = @card.manager_name
+%p
+  %b Value:
+  = @card.value
+%p
+  %b Service standard:
+  = @card.service_standard
+%p
+  %b Note:
+  = @card.note
+%p
+  %b From email:
+  = @card.from_email
+
+= link_to 'Edit', edit_card_path(@card)
+\|
+= link_to 'Back', cards_path
