@@ -20,10 +20,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  new_card: "new card"
+  none: "There are not %{object} yet"
+  new: "new %{object}"
+  sign_in: "sign in"
+  email: "Email"
+  password: "Password"
+  listing_employees: "Listing Employees"
+  listing_cards: "Listing Cards"
   copyright: "Copyright ©2013 Millennium Partners Sports Club Management, LLC. All Rights Reserved."
   activerecord:
+    errors:
+      template:
+        header:
+          other: "%{count} errors prohibited this %{model} from being saved"
     attributes:
+      employee:
+        name: "name"
+        active: "active"
       card:
         from_name: "name of sending employee"
         from_email: "email of sending employee"

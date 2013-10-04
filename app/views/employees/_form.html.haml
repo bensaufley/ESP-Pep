@@ -1,0 +1,14 @@
+= form_for @employee do |f|
+  = render(partial: "shared/errors", locals: { object: @employee }) if @employee.errors.any?
+
+  %label
+    %strong= t :first_name
+    = f.text_field :first_name
+  %label
+    %strong= t :last_name
+    = f.text_field :last_name
+  %label
+    %strong= t :active
+    = f.check_box :active
+  .actions
+    = f.submit 'Save'

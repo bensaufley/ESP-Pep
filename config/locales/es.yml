@@ -20,12 +20,32 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
-  new_card: "nueva tarjeta"
+  none: "No hay %{model} ninguna"
+  new: "nueva %{model}"
+  sign_in: "registrarse"
+  sign_out: "salir"
+  email: "Email"
+  password: "Contraseña"
+  listing_employees: "Listado de los Empleados"
+  listing_cards: "Listado de las Tarjetas"
   copyright: "Copyright ©2013 Millennium Partners Sports Club Management, LLC. Todos los derechos reservados."
   activerecord:
+    errors:
+      template:
+        header:
+          one: "1 error prohibida esta %{model} se guarde"
+          other: "%{count} errores prohibido que esta %{model} se guarde"
+      messages:
+        blank: "no puede estar vacío"
+        invalid: "no es válido" 
+    models:
+      card: "tarjeta"
+      employee: "empleado"
     attributes:
+      employee:
+        name: "nombre"
+        active: "activo"
       card:
-        model_name: "tarjeta"
         from_name: "su nombre"
         from_email: "su email"
         name: "nombre del empleado que recibe"

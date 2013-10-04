@@ -1,0 +1,5 @@
+#error_explanation
+  %h3= t('activerecord.errors.template.header.' + (object.errors.count == 1 ? 'one' : 'other'), count: object.errors.count, model: object.class.model_name.human) + ":"
+  %ul.errors
+    - object.errors.full_messages.each do |msg|
+      %li= msg.titleize

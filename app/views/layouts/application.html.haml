@@ -7,15 +7,18 @@
     = csrf_meta_tags
   %body
     %header
-      %h1= link_to content_for?(:title) ? yield(:title) : "ESP-Pep", root_path
-      =content_tag(:h2, yield(:subtitle)) if content_for?(:h2)
+      %h1 
+        =link_to "ESP-Pep", root_path
+        = " : " + content_for(:title).titleize if content_for?(:title)
+      =content_tag(:h2, content_for(:subtitle).titleize) if content_for?(:h2)
       %nav
         - if user_signed_in?
-          = link_to "New Card"
-          = link_to "Cards", cards_path
-          = link_to "Sign Out", destroy_user_session_path, method: :delete
+          = link_to Employee.model_name.human.pluralize.titleize, employees_path
+          = link_to t("new",  model: Card.model_name.human).titleize, "/"
+          = link_to Card.model_name.human.pluralize.titleize, "/admin/cards"
+          = link_to t("sign_out",  default: "sign out").titleize, destroy_user_session_path, method: :delete
         - else
-          = link_to "Admin", new_user_session_path
+          = link_to t("admin"), new_user_session_path
     %main
       = yield
     %footer

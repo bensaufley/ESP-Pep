@@ -1,0 +1,19 @@
+- content_for :title, t("listing_employees")
+
+- if @employees.empty?
+  %section#employees.empty= t 'none', model: Employee.model_name.human.pluralize
+- else
+  %section#employees.table
+    %header
+      %div= t Employee.human_attribute_name(:name)
+      %div= t Employee.human_attribute_name(:active)
+      %div
+      %div
+      %div
+    - @employees.each do |employee|
+      %section.employee
+        %div= employee.name
+        %div= employee.active
+        %div= link_to 'Show', employee
+        %div= link_to 'Edit', edit_employee_path(employee)
+        %div= link_to 'Mark Inactive', employee, :method => :delete, :data => { :confirm => 'Are you sure?' }

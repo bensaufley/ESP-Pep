@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003213747) do
+ActiveRecord::Schema.define(version: 20131004164910) do
 
   create_table "cards", force: true do |t|
     t.string   "from_name"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20131003213747) do
     t.string   "short"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "employees", force: true do |t|
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|

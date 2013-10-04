@@ -1,13 +1,14 @@
 ESPPep::Application.routes.draw do
 
-  resources :cards, path: "/", only: [ :new, :create ]
+  resources :cards, path: "/", only: [ :new, :create, :show ]
   devise_for :users, path: "/admin"
 
   scope :admin do
-    resources :cards, except: [ :new, :create ]
+    resources :cards, except: [ :new, :create, :show ]
     #match "/", to: 'cards#index', as: :cards, via: :get
     resources :clubs
     resources :users
+    resources :employees, except: [ :new ]
   end
 
   root to: 'cards#new'

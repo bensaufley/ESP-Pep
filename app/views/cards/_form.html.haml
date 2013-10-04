@@ -1,39 +1,34 @@
 = form_for @card do |f|
-  - if @card.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@card.errors.count, "error")} prohibited this card from being saved:"
-      %ul
-        - @card.errors.full_messages.each do |msg|
-          %li= msg
+  = render(partial: "shared/errors", locals: { object: @card }) if @card.errors.any?
 
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:from_name).titleize
     = f.text_field :from_name, placeholder: Card.human_attribute_name(:from_name).titleize, placeholder: Card.human_attribute_name(:from_name).titleize
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:from_email).titleize
     = f.text_field :from_email, placeholder: Card.human_attribute_name(:from_email).titleize
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:name).titleize
     = f.text_field :name, placeholder: Card.human_attribute_name(:name).titleize
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:email).titleize
     = f.text_field :email, placeholder: Card.human_attribute_name(:email).titleize
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:position).titleize
     = f.text_field :position, placeholder: Card.human_attribute_name(:position).titleize
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:club_id).titleize
     = f.select :club_id, Club.order('name ASC').map{|c| [c.name, c.id]}, include_blank: "–#{Card.human_attribute_name(:club).titleize}–"
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:manager_name).titleize
     = f.text_field :manager_name, placeholder: Card.human_attribute_name(:manager_name).titleize
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:value).titleize
     = f.select :value, Card::VALUES.each_with_index.map{|k,v| [ k, v] }, include_blank: "–#{Card.human_attribute_name(:value).titleize}–"
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:service_standard).titleize
     = f.select :service_standard, Card::SERVICESTANDARDS.each_with_index.map{|k,v| [ k, v] }, include_blank: "–#{Card.human_attribute_name(:service_standard).titleize}–"
-  =label_tag do
+  %label
     %strong= Card.human_attribute_name(:note).titleize
     = f.text_area :note, placeholder: Card.human_attribute_name(:note).titleize
   .actions
