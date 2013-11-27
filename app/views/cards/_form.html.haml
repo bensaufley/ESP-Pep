@@ -24,10 +24,10 @@
     = f.text_field :manager_name, placeholder: Card.human_attribute_name(:manager_name).titleize
   %label
     %strong= Card.human_attribute_name(:value).titleize
-    = f.select :value, Card::VALUES.each_with_index.map{|k,v| [ k, v] }, include_blank: "–#{Card.human_attribute_name(:value).titleize}–"
+    = f.select :value, Card::VALUES[I18n.locale].each_with_index.map{|k,v| [ k, v] }, include_blank: "–#{Card.human_attribute_name(:value).titleize}–"
   %label
     %strong= Card.human_attribute_name(:service_standard).titleize
-    = f.select :service_standard, Card::SERVICESTANDARDS.each_with_index.map{|k,v| [ k, v] }, include_blank: "–#{Card.human_attribute_name(:service_standard).titleize}–"
+    = f.select :service_standard, Card::SERVICESTANDARDS[I18n.locale].each_with_index.map{|k,v| [ k, v] }, include_blank: "–#{Card.human_attribute_name(:service_standard).titleize}–"
   %label
     %strong= Card.human_attribute_name(:note).titleize
     = f.text_area :note, placeholder: Card.human_attribute_name(:note).titleize

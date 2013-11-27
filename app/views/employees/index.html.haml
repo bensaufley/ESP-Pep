@@ -8,12 +8,11 @@
       %div= t Employee.human_attribute_name(:name)
       %div= t Employee.human_attribute_name(:active)
       %div
-      %div
-      %div
     - @employees.each do |employee|
       %section.employee
         %div= employee.name
         %div= employee.active
-        %div= link_to 'Show', employee
-        %div= link_to 'Edit', edit_employee_path(employee)
-        %div= link_to 'Mark Inactive', employee, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %div.btns
+          = link_to 'Show', employee
+          = link_to 'Edit', edit_employee_path(employee)
+          = link_to 'Mark Inactive', employee, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -15,8 +15,6 @@
       %div= Card.human_attribute_name(:from_name).titleize
       %div= Card.human_attribute_name(:from_email).titleize
       %div
-      %div
-      %div
     - @cards.each do |card|
       %section.card
         %div
@@ -27,10 +25,11 @@
         %div= card.position
         %div= card.club.short
         %div= card.manager_name
-        %div= Card::VALUES[card.value]
-        %div= Card::SERVICE_STANDARDS[card.service_standard]
+        %div= Card::VALUES[I18n.locale][card.value]
+        %div= Card::SERVICE_STANDARDS[I18n.locale][card.service_standard]
         %div= card.from_name
         %div= card.from_email
-        %div= link_to 'Show', card
-        %div= link_to 'Edit', edit_card_path(card)
-        %div= link_to 'Destroy', card, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %div.btns
+          = link_to 'Show', card
+          = link_to 'Edit', edit_card_path(card)
+          = link_to 'Destroy', card, :method => :delete, :data => { :confirm => 'Are you sure?' }
